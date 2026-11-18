@@ -1,9 +1,9 @@
 import type { Priority } from '../types'
 
 const labels: Record<Priority, string> = {
-  high: 'High',
-  medium: 'Medium',
-  low: 'Low',
+  high: 'زیاد',
+  medium: 'متوسط',
+  low: 'کم',
 }
 
 export function PriorityBadge({ priority }: { priority: Priority }) {

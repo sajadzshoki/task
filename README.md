@@ -1,63 +1,66 @@
-# My Tasks — Personal Task Manager
+# تسک‌های من — مدیریت تسک شخصی
 
-A simple, fast, frontend-only personal task manager. No backend, no database, no
-accounts — all data lives in your browser's `localStorage`.
+یک مدیریت تسک شخصی، ساده و سریع. فقط رابط کاربری، بدون سرور و بدون پایگاه‌داده؛
+تمام داده‌ها در `localStorage` مرورگر شما ذخیره می‌شوند. رابط کاربری به زبان
+فارسی و با چیدمان راست‌به‌چپ (RTL) و فونت **وزیر‌متن** است.
 
-## Features
+## ویژگی‌ها
 
-- Create, edit and delete tasks
-- One level of nested subtasks per task (add, edit, delete, complete)
-- Task descriptions and three priority levels (High / Medium / Low)
-- Per-task progress bar (completed subtasks / total, percentage); tasks without
-  subtasks fall back to their own completion status
-- Instant search across task titles, descriptions and subtask titles
-- Light / dark theme with toggle, persisted separately, system preference on
-  first visit
-- Fully responsive (desktop, tablet, mobile)
+- ایجاد، ویرایش و حذف تسک
+- زیرتسک به یک سطح برای هر تسک (افزودن، ویرایش، حذف، علامت انجام)
+- توضیحات تسک و سه سطح اولویت (کم / متوسط / زیاد)
+- نوار پیشرفت هر تسک (زیرتسک‌های انجام‌شده از کل، درصد)؛ تسک‌های بدون
+  زیرتسک بر اساس وضعیت خودشان محاسبه می‌شوند
+- جستجوی فوری در عنوان تسک‌ها، توضیحات و عنوان زیرتسک‌ها
+- حالت روشن / تاریک با دکمه تغییر و ذخیره جداگانه؛ احترام به ترجیح سیستم در
+  اولین بازدید
+- کاملاً واکنش‌گرا (دسکتاپ، تبلت، موبایل)
 
-## Tech stack
+## پشته فنی
 
-- React 18 + TypeScript
-- Vite (dev server + build)
-- Plain CSS with CSS variables for theming
-- `localStorage` for persistence (versioned keys:
-  `personal-task-manager-v1` for tasks, `personal-task-manager-theme-v1` for the theme)
+- React + TypeScript
+- Vite (سرور توسعه و ساخت)
+- CSS ساده با متغیرهای CSS برای پشتیبانی از دو حالت روشن/تاریک
+- فونت وزیر‌متن به‌صورت محلی از طریق بسته `@fontsource/vazirmatn`
+- `localStorage` برای ذخیره‌سازی (کلیدهای نسه‌دار:
+  `personal-task-manager-v1` برای تسک‌ها و
+  `personal-task-manager-theme-v1` برای حالت نمایش)
 
-## Getting started
+## راه‌اندازی
 
 ```bash
 npm install
-npm run dev      # start the dev server
+npm run dev      # شروع سرور توسعه
 ```
 
-## Build
+## ساخت
 
 ```bash
-npm run build    # type-check + production build into dist/
-npm run preview  # serve the production build
+npm run build    # بررسی تایپ‌ها + ساخت نسخه تولید در dist/
+npm run preview  # نمایش نسخه تولید
 ```
 
-## Project structure
+## ساختار پروژه
 
 ```
 src/
-├── types.ts               # Task / Subtask / Priority types
-├── storage.ts             # localStorage load/save (versioned, validated)
-├── taskUtils.ts           # id generation, progress math, search filter
+├── types.ts               # انواع Task / Subtask / Priority
+├── storage.ts             # خواندن/نوشتن localStorage (نسه‌دار و اعتبارسنجی‌شده)
+├── taskUtils.ts           # تولید شناسه، محاسبه پیشرفت، جستجو، اعداد فارسی
 ├── hooks/
-│   ├── useTasks.ts        # central task state + all mutations
-│   └── useTheme.ts        # theme state + persistence
+│   ├── useTasks.ts        # وضعیت مرکزی تسک‌ها + همه تغییرات
+│   └── useTheme.ts        # وضعیت حالت روشن/تاریک + ذخیره‌سازی
 ├── components/
-│   ├── Header.tsx         # app title, overall progress, theme toggle
-│   ├── SearchBar.tsx      # instant search input
-│   ├── TaskItem.tsx       # task row + expandable details
-│   ├── SubtaskItem.tsx    # subtask row with inline editing
-│   ├── TaskFormModal.tsx  # create/edit task modal
-│   ├── ProgressBar.tsx    # accessible progress bar
-│   ├── PriorityBadge.tsx  # priority indicator
-│   ├── EmptyState.tsx     # empty / no-results states
-│   └── icons.tsx          # inline SVG icons
-├── App.tsx                # composition + search/modal state
+│   ├── Header.tsx         # عنوان برنامه، پیشرفت کلی، تغییر حالت
+│   ├── SearchBar.tsx      # ورودی جستجوی فوری
+│   ├── TaskItem.tsx       # ردیف تسک + جزئیات قابل بازشدن
+│   ├── SubtaskItem.tsx    # ردیف زیرتسک با ویرایش درجا
+│   ├── TaskFormModal.tsx  # مودال ایجاد/ویرایش تسک
+│   ├── ProgressBar.tsx    # نوار پیشرفت قابل دسترس
+│   ├── PriorityBadge.tsx  # نشان اولویت
+│   ├── EmptyState.tsx     # حالت‌های خالی / بدون نتیجه
+│   └── icons.tsx          # آیکون‌های SVG درون‌خطی
+├── App.tsx                # ترکیب اجزا + وضعیت جستجو/مودال
 ├── main.tsx
-└── styles.css             # theming via CSS variables
+└── styles.css             # تم‌داری با متغیرهای CSS و ویژگی‌های منطقی RTL
 ```

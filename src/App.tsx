@@ -64,19 +64,19 @@ export default function App() {
           <SearchBar value={query} onChange={setQuery} />
           <button type="button" className="button button-primary" onClick={openCreateModal}>
             <PlusIcon size={16} />
-            <span>New Task</span>
+            <span>افزودن تسک</span>
           </button>
         </div>
 
         {tasks.length === 0 ? (
           <EmptyState
-            title="No tasks yet"
-            message="Create your first task to get started."
+            title="هنوز تسکی ثبت نکردی"
+            message="برای شروع، اولین تسک را ایجاد کن."
           />
         ) : visibleTasks.length === 0 ? (
           <EmptyState
-            title="No matching tasks"
-            message={`Nothing found for “${query}”. Try a different search.`}
+            title="تسکی یافت نشد"
+            message={`عبارت «${query}» نتیجه‌ای نداشت؛ عبارت دیگری را جستجو کن.`}
           />
         ) : (
           <ul className="task-list">

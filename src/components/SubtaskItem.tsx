@@ -44,7 +44,7 @@ export function SubtaskItem({ subtask, onToggle, onEdit, onDelete }: SubtaskItem
             if (event.key === 'Enter') commit()
             if (event.key === 'Escape') cancel()
           }}
-          aria-label="Subtask title"
+          aria-label="عنوان زیرتسک"
         />
       ) : (
         <>
@@ -55,8 +55,8 @@ export function SubtaskItem({ subtask, onToggle, onEdit, onDelete }: SubtaskItem
               onChange={onToggle}
               aria-label={
                 subtask.completed
-                  ? `Mark "${subtask.title}" as active`
-                  : `Mark "${subtask.title}" as completed`
+                  ? `علامت کردن «${subtask.title}» به‌عنوان فعال`
+                  : `علامت کردن «${subtask.title}» به‌عنوان انجام‌شده`
               }
             />
             <span className="checkbox-box" aria-hidden="true">
@@ -69,7 +69,7 @@ export function SubtaskItem({ subtask, onToggle, onEdit, onDelete }: SubtaskItem
               type="button"
               className="icon-button icon-button-small"
               onClick={startEditing}
-              aria-label={`Edit subtask "${subtask.title}"`}
+              aria-label={`ویرایش زیرتسک «${subtask.title}»`}
             >
               <EditIcon size={14} />
             </button>
@@ -77,7 +77,7 @@ export function SubtaskItem({ subtask, onToggle, onEdit, onDelete }: SubtaskItem
               type="button"
               className="icon-button icon-button-small icon-button-danger"
               onClick={onDelete}
-              aria-label={`Delete subtask "${subtask.title}"`}
+              aria-label={`حذف زیرتسک «${subtask.title}»`}
             >
               <TrashIcon size={14} />
             </button>

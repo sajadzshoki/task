@@ -50,18 +50,19 @@ body {
 body {
   background-color: var(--bg);
   color: var(--text);
-  font-family:
-    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-    sans-serif;
+  font-family: 'Vazirmatn', 'Segoe UI', Tahoma, sans-serif;
   font-size: 15px;
-  line-height: 1.5;
+  /* Persian text needs a little more breathing room. */
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   transition:
     background-color 0.15s ease,
     color 0.15s ease;
 }
 
-button {
+button,
+input,
+textarea {
   font-family: inherit;
 }
 
@@ -98,7 +99,6 @@ textarea:focus-visible {
   margin: 0;
   font-size: 22px;
   font-weight: 700;
-  letter-spacing: -0.02em;
 }
 
 .header-right {
@@ -133,7 +133,7 @@ textarea:focus-visible {
   color: var(--text-muted);
   font-variant-numeric: tabular-nums;
   min-width: 36px;
-  text-align: right;
+  text-align: start;
 }
 
 /* ===== Buttons ===== */
@@ -254,6 +254,7 @@ textarea:focus-visible {
   font-family: inherit;
   font-size: 14px;
   padding: 9px 0;
+  text-align: start;
 }
 
 .search-bar input::placeholder {
@@ -301,7 +302,9 @@ textarea:focus-visible {
 .task-title {
   font-size: 15px;
   font-weight: 600;
+  line-height: 1.6;
   overflow-wrap: anywhere;
+  text-align: start;
 }
 
 .task-completed .task-title {
@@ -330,7 +333,7 @@ textarea:focus-visible {
   position: relative;
   display: inline-flex;
   flex-shrink: 0;
-  margin-top: 2px;
+  margin-top: 3px;
   cursor: pointer;
 }
 
@@ -441,6 +444,7 @@ textarea:focus-visible {
   color: var(--text-muted);
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
+  text-align: start;
 }
 
 /* ===== Task details / subtasks ===== */
@@ -448,16 +452,18 @@ textarea:focus-visible {
 .task-details {
   margin-top: 12px;
   padding-top: 12px;
-  padding-left: 32px;
+  padding-inline-start: 32px;
   border-top: 1px solid var(--border);
 }
 
 .task-description {
   margin: 0 0 10px;
   font-size: 14px;
+  line-height: 1.9;
   color: var(--text-muted);
   white-space: pre-wrap;
   overflow-wrap: anywhere;
+  text-align: start;
 }
 
 .task-description-empty {
@@ -501,7 +507,9 @@ textarea:focus-visible {
   flex: 1;
   min-width: 0;
   font-size: 14px;
+  line-height: 1.7;
   overflow-wrap: anywhere;
+  text-align: start;
 }
 
 .subtask-completed .subtask-title {
@@ -537,6 +545,7 @@ textarea:focus-visible {
   font-family: inherit;
   font-size: 14px;
   padding: 6px 0;
+  text-align: start;
 }
 
 .subtask-add input::placeholder {
@@ -554,6 +563,7 @@ textarea:focus-visible {
   font-size: 14px;
   padding: 5px 8px;
   outline: none;
+  text-align: start;
 }
 
 /* ===== Empty state ===== */
@@ -574,6 +584,7 @@ textarea:focus-visible {
 .empty-state-message {
   margin: 0;
   font-size: 14px;
+  line-height: 1.9;
 }
 
 /* ===== Modal ===== */
@@ -624,6 +635,7 @@ textarea:focus-visible {
   font-size: 13px;
   font-weight: 600;
   margin-bottom: 6px;
+  text-align: start;
 }
 
 .field-optional {
@@ -640,9 +652,11 @@ textarea:focus-visible {
   color: var(--text);
   font-family: inherit;
   font-size: 14px;
+  line-height: 1.8;
   padding: 8px 10px;
   outline: none;
   resize: vertical;
+  text-align: start;
   transition: border-color 0.12s ease;
 }
 
@@ -739,7 +753,7 @@ textarea:focus-visible {
   }
 
   .task-details {
-    padding-left: 0;
+    padding-inline-start: 0;
   }
 
   .modal-overlay {

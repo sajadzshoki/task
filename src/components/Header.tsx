@@ -1,5 +1,5 @@
 import type { Theme } from '../storage'
-import type { Progress } from '../taskUtils'
+import { toPersianDigits, type Progress } from '../taskUtils'
 import { MoonIcon, SunIcon } from './icons'
 
 interface HeaderProps {
@@ -11,12 +11,12 @@ interface HeaderProps {
 export function Header({ theme, onToggleTheme, progress }: HeaderProps) {
   return (
     <header className="app-header">
-      <h1 className="app-title">My Tasks</h1>
+      <h1 className="app-title">تسک‌های من</h1>
       <div className="header-right">
         {progress.total > 0 && (
           <div
             className="overall-progress"
-            title={`${progress.completed} of ${progress.total} items completed`}
+            title={`${toPersianDigits(progress.completed)} از ${toPersianDigits(progress.total)} مورد انجام شده`}
           >
             <div className="overall-progress-bar">
               <div
@@ -24,14 +24,18 @@ export function Header({ theme, onToggleTheme, progress }: HeaderProps) {
                 style={{ width: `${progress.percent}%` }}
               />
             </div>
-            <span className="overall-progress-text">{progress.percent}%</span>
+            <span className="overall-progress-text">
+              {toPersianDigits(progress.percent)}٪
+            </span>
           </div>
         )}
         <button
           type="button"
           className="icon-button"
           onClick={onToggleTheme}
-          aria-label={theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'}
+          aria-label={
+            theme === 'dark' ? 'تغییر به حالت روشن' : 'تغییر به حالت تاریک'
+          }
         >
           {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
         </button>

@@ -49,8 +49,8 @@ export function TaskItem({
             onChange={onToggle}
             aria-label={
               task.completed
-                ? `Mark "${task.title}" as active`
-                : `Mark "${task.title}" as completed`
+                ? `علامت کردن «${task.title}» به‌عنوان فعال`
+                : `علامت کردن «${task.title}» به‌عنوان انجام‌شده`
             }
           />
           <span className="checkbox-box" aria-hidden="true">
@@ -75,7 +75,7 @@ export function TaskItem({
             type="button"
             className="icon-button icon-button-small"
             onClick={onEdit}
-            aria-label={`Edit task "${task.title}"`}
+            aria-label={`ویرایش تسک «${task.title}»`}
           >
             <EditIcon size={14} />
           </button>
@@ -83,7 +83,7 @@ export function TaskItem({
             type="button"
             className="icon-button icon-button-small icon-button-danger"
             onClick={onDelete}
-            aria-label={`Delete task "${task.title}"`}
+            aria-label={`حذف تسک «${task.title}»`}
           >
             <TrashIcon size={14} />
           </button>
@@ -92,7 +92,7 @@ export function TaskItem({
             className={`icon-button icon-button-small chevron${expanded ? ' chevron-open' : ''}`}
             onClick={() => setExpanded((value) => !value)}
             aria-expanded={expanded}
-            aria-label={expanded ? 'Hide subtasks' : 'Show subtasks'}
+            aria-label={expanded ? 'پنهان کردن زیرتسک‌ها' : 'نمایش زیرتسک‌ها'}
           >
             <ChevronDownIcon size={16} />
           </button>
@@ -104,7 +104,7 @@ export function TaskItem({
           {task.description ? (
             <p className="task-description">{task.description}</p>
           ) : (
-            <p className="task-description task-description-empty">No description</p>
+            <p className="task-description task-description-empty">بدون توضیحات</p>
           )}
 
           {task.subtasks.length > 0 && (
@@ -125,13 +125,13 @@ export function TaskItem({
             <PlusIcon size={14} />
             <input
               type="text"
-              placeholder="Add a subtask..."
+              placeholder="افزودن زیرتسک..."
               value={newSubtask}
               onChange={(event) => setNewSubtask(event.target.value)}
               onKeyDown={(event) => {
                 if (event.key === 'Enter') submitNewSubtask()
               }}
-              aria-label={`Add a subtask to "${task.title}"`}
+              aria-label={`افزودن زیرتسک به «${task.title}»`}
             />
             <button
               type="button"
@@ -139,7 +139,7 @@ export function TaskItem({
               onClick={submitNewSubtask}
               disabled={newSubtask.trim() === ''}
             >
-              Add
+              افزودن
             </button>
           </div>
         </div>
