@@ -11,17 +11,17 @@ export function SearchBar({ value, onChange }: SearchBarProps) {
       <SearchIcon size={16} />
       <input
         type="text"
-        placeholder="Search tasks..."
+        placeholder="جستجوی تسک‌ها..."
         value={value}
         onChange={(event) => onChange(event.target.value)}
-        aria-label="Search tasks"
+        aria-label="جستجوی تسک‌ها"
       />
       {value !== '' && (
         <button
           type="button"
           className="icon-button icon-button-small"
           onClick={() => onChange('')}
-          aria-label="Clear search"
+          aria-label="پاک کردن جستجو"
         >
           <XIcon size={14} />
         </button>
