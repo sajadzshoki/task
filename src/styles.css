@@ -76,7 +76,7 @@ textarea:focus-visible {
 /* ===== Layout ===== */
 
 .app {
-  max-width: 760px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px 64px;
 }
@@ -267,8 +267,9 @@ textarea:focus-visible {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
   gap: 10px;
 }
 
@@ -730,6 +731,12 @@ textarea:focus-visible {
 }
 
 /* ===== Responsive / motion ===== */
+
+@media (max-width: 900px) {
+  .task-list {
+    grid-template-columns: 1fr;
+  }
+}
 
 @media (max-width: 560px) {
   .app {
